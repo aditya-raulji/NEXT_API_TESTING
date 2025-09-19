@@ -1,63 +1,91 @@
-# Companies API Testing with Playwright
+# 🚀 Companies API – Automated Testing with Playwright  
+
+## 📌 Introduction  
+
+This project contains **end-to-end API test automation** for a custom-built **Companies API** developed with **Next.js** and **MongoDB**.  
+
+The Companies API provides insights into organizations, including:  
+
+- 📍 Location  
+- 💰 Salary details  
+- 👥 Headcount  
+- 🎯 Hiring criteria  
+- 🎁 Employee benefits  
+- 📝 Interview rounds  
+
+Using **Playwright**, this project ensures that API endpoints are **reliable, accurate, and resilient** under different input scenarios.  
 
 ---
 
-## Project Overview
+## ✅ Features Covered  
 
-This repository contains automated API tests for a **Companies API** built with **Next.js** and **MongoDB**.  
+The automated tests validate the following:  
 
-The API provides company information such as location, salary, headcount, hiring criteria, benefits, and interview rounds.  
-
-The goal of this project is to **verify API functionality, filtering, sorting, and robustness** using **Playwright**.
-
----
-
-## API Endpoints Tested
-
-| Endpoint | Description | Test Cases |
-|----------|-------------|------------|
-| `/api/companies/count` | Returns total number of companies | ✅ Total without filters <br> ✅ Filter by name <br> ✅ Non-existing company name |
-| `/api/companies/top-paid` | Returns top-paid companies | ✅ Default max 5 items <br> ✅ Sorted by salary descending <br> ✅ Limit parameter works |
-| `/api/companies/by-skill/:skill` | Filter companies by skill | ✅ Matches companies with the skill <br> ✅ Case-insensitive <br> ✅ Non-existing skill returns empty |
-| `/api/companies/by-location/:location` | Filter companies by location | ✅ Matches companies with the location <br> ✅ Case-insensitive <br> ✅ Non-existing location returns empty |
-| `/api/companies/headcount-range` | Filter companies by headcount | ✅ Min headcount only <br> ✅ Min and max headcount <br> ✅ Handles invalid input |
-| `/api/companies/benefit/:benefit` | Filter companies by benefits | ✅ Matches companies with benefit <br> ✅ Partial match supported <br> ✅ Case-insensitive <br> ✅ No match returns empty array |
+- **Data accuracy** – responses return correct results  
+- **Filtering & Sorting** – queries return expected subsets of data  
+- **Edge cases & errors** – invalid or missing inputs are handled gracefully  
+- **Scalability checks** – limit and range parameters work as intended  
 
 ---
 
-## Tech Stack
+## 🔗 API Endpoints Tested  
 
-- **Next.js** – Backend API routes  
-- **MongoDB** – Database to store company information  
-- **Playwright** – API testing framework  
-- **Node.js** – JavaScript runtime environment  
-- **JavaScript** – Programming language  
+| Endpoint | Description | Test Coverage |
+|----------|-------------|---------------|
+| `/api/companies/count` | Returns the total number of companies | 🔹 Count without filters <br> 🔹 Filter by name <br> 🔹 Non-existing company name |
+| `/api/companies/top-paid` | Returns top paid companies | 🔹 Default 5 results <br> 🔹 Sorted by salary (DESC) <br> 🔹 Limit param supported |
+| `/api/companies/by-skill/:skill` | Filters companies by skill | 🔹 Matches exact skill <br> 🔹 Case-insensitive <br> 🔹 No matches return empty |
+| `/api/companies/by-location/:location` | Filters companies by location | 🔹 Exact match <br> 🔹 Case-insensitive <br> 🔹 Handles non-existing location |
+| `/api/companies/headcount-range` | Filters by headcount range | 🔹 Minimum only <br> 🔹 Min + Max <br> 🔹 Invalid input handling |
+| `/api/companies/benefit/:benefit` | Filters by employee benefits | 🔹 Exact & partial match <br> 🔹 Case-insensitive <br> 🔹 Empty response for no match |
 
 ---
 
-## How to Run
+## 🛠️ Tech Stack  
 
-1. Install dependencies:
+- **Backend** → Next.js (API Routes)  
+- **Database** → MongoDB  
+- **Testing** → Playwright  
+- **Runtime** → Node.js  
+- **Language** → JavaScript  
 
+---
+
+## ▶️ Getting Started  
+
+### 1️⃣ Install dependencies  
 ```bash
 npm install
-```
---
-
-Run Playwright tests
-
-```bash
+2️⃣ Run Playwright tests
+bash
+Copy code
 npx playwright test
-```
-
---
-
-View the HTML test report
-
-```bash
+3️⃣ View the HTML test report
+bash
+Copy code
 npx playwright show-report
-```
+📊 Example Test Flow
+Request /api/companies/count without filters → Expect total company count
 
----
-# NEXT_API_TESTING
-# NEXT_API_TESTING
+Request /api/companies/count?name=Google → Expect count = 1 (if Google exists)
+
+Request /api/companies/top-paid?limit=3 → Expect 3 companies sorted by salary DESC
+
+Request /api/companies/by-skill/react → Expect all React-based companies
+
+📌 Future Enhancements
+🔹 Add performance testing for stress/load validation
+
+🔹 Integrate CI/CD pipeline for automated test execution
+
+🔹 Expand coverage for authentication & authorization endpoints
+
+🔹 Implement contract testing with schema validation
+
+👨‍💻 Author
+Companies API Testing Project – Built with ❤️ using Next.js, MongoDB & Playwright.
+
+pgsql
+Copy code
+
+Do you want me to also **add shields.io badges** (like Node.js, Playwright, MongoDB, License) at the top of the `README
